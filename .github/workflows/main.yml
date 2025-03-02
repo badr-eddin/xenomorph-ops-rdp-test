@@ -17,9 +17,9 @@ jobs:
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
 
-    # Enable Windows SSH Server
+    # ✅ Install OpenSSH (Fixed for Windows 10/11)
     - name: Install OpenSSH Server
-      run: Add-WindowsFeature -Name OpenSSH-Server
+      run: Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Server*' | Add-WindowsCapability -Online
 
     - name: Start SSH Service
       run: Start-Service sshd
