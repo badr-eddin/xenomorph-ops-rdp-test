@@ -28,7 +28,7 @@ jobs:
       run: New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
 
     - name: Set Runner Password (For SSH Login)
-      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+      run: Set-LocalUser -Name "gunter" -Password (ConvertTo-SecureString -AsPlainText "gunter" -Force)
     # print the ip
     - name: Show Public IP
       run: curl ifconfig.me
