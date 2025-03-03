@@ -29,6 +29,9 @@ jobs:
 
     - name: Set Runner Password (For SSH Login)
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+    # print the ip
+    - name: Show Public IP
+      run: curl ifconfig.me
 
     # Create SSH Tunnel with Ngrok
     - name: Create Ngrok SSH Tunnel
